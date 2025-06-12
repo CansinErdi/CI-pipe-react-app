@@ -1,12 +1,15 @@
-# React + Vite
+# CI Pipeline: Build and Push React App as Docker Image
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses GitHub Actions to build a Vite React app as a Docker image and push it to Docker Hub using a multi-stage Dockerfile.
 
-Currently, two official plugins are available:
+## Pipeline steps
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Checkout code from repository
+- Login to Docker Hub using GitHub Secrets
+- Build Docker image using multi-stage Dockerfile (Node.js and Nginx)
+- Tag the image with the Git commit SHA
+- Push the image to Docker Hub
 
-## Expanding the ESLint configuration
+## Docker Hub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Image: docker pull cansinerdi/my-react-app:ea1b395b463e504c3d6d35ad1a86117b3e0232e4
