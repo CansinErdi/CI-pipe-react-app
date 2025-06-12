@@ -9,4 +9,4 @@ RUN npm run build
 # RUNTIME STAGE
 
 FROM node:20-alpine AS runtime
-COPY --from=buiderler /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
